@@ -11,7 +11,7 @@ export default function Blog({ posts }) {
             <div className="section-title text-center">
               <h2>Latest Blog Posts</h2>
               <p>
-                <Link href={`/blog`} className="main-btn btn-hover mt-5">
+                <Link href={`/blog`} className="btn btn-primary mt-5">
                   View All Blog Posts
                 </Link>
               </p>

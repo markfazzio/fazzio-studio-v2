@@ -52,7 +52,7 @@ export default function FooterSection({ mainMenu }) {
                             <h3>Subscribe Newsletter</h3>
                             <form action="#">
                                 <input type="email" placeholder="Email" />
-                                <button className="main-btn btn-hover">Subscribe</button>
+                                <button className="btn btn-hover">Subscribe</button>
                             </form>
                         </div>
                     </div>

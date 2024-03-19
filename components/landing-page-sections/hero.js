@@ -18,7 +18,7 @@ export default function Hero({
               <p>{subheadline}</p>
 
               {buttonLabel && buttonUrl ? (
-                <a href={buttonUrl} className="main-btn btn-hover">
+                <a href={buttonUrl} className="btn btn-primary">
                   {buttonLabel}
                 </a>
               ) : undefined}

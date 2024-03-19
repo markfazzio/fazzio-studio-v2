@@ -3,30 +3,35 @@ import CodeSnippet from "./code-snippet";
 export default function CodeSnippets({
   headline,
   description,
-  code_snippets,
+  codeSnippets,
   scrollAnchorId,
 }) {
   return (
-    <section id={scrollAnchorId} className="feature-section">
+    <section id={scrollAnchorId || "ts-snippets"} className="feature-section">
       <div className="container">
         <div className="row">
-          <div className="col-lg-5 col-md-10">
+          <div className="col-12">
             <div className="section-title mb-60">
-              <h2 className="mb-20">{headline}</h2>
-              <p>{description}</p>
+              <h2 className="mb-20">{headline || "Typescript Snippets"}</h2>
+              <p>
+                {description ||
+                  "Useful pieces of code for use in your own app."}
+              </p>
             </div>
           </div>
 
-          <div className="col-lg-7">
+          <div className="col-12">
             <div className="row">
-              {code_snippets.map((feature, index) => (
-                <CodeSnippet
-                  key={index}
-                  headline={feature.headline}
-                  description={feature.description}
-                  icon={feature.icon}
-                />
-              ))}
+              {codeSnippets && codeSnippets.length
+                ? codeSnippets.map((code_snippet, index) => (
+                    <CodeSnippet
+                      key={index}
+                      title={code_snippet.title}
+                      description={code_snippet.description}
+                      code={code_snippet.code}
+                    />
+                  ))
+                : undefined}
             </div>
           </div>
         </div>

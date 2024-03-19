@@ -43,15 +43,6 @@ export default function LandingPageSection({ type, sectionData }) {
         loading: Preloader,
       }
     ),
-    testimonials: dynamic(
-      () =>
-        import("@/components/landing-page-sections/testimonials").catch(
-          () => () => MissingSection
-        ),
-      {
-        loading: Preloader,
-      }
-    ),
   });
   const SectionComponent = sectionsComponentPaths()[type] || MissingSection;
 
