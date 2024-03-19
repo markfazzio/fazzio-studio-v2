@@ -1,3 +1,4 @@
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import CodeSnippet from "./code-snippet";
 
 export default function CodeSnippets({
@@ -21,18 +22,22 @@ export default function CodeSnippets({
           </div>
 
           <div className="col-12">
-            <div className="row">
-              {codeSnippets && codeSnippets.length
-                ? codeSnippets.map((code_snippet, index) => (
-                    <CodeSnippet
-                      key={index}
-                      title={code_snippet.title}
-                      description={code_snippet.description}
-                      code={code_snippet.code}
-                    />
-                  ))
-                : undefined}
-            </div>
+            <ResponsiveMasonry
+              columnsCountBreakPoints={{ 350: 1, 1023: 3, 1408: 4 }}
+            >
+              <Masonry gutter="15px">
+                {codeSnippets && codeSnippets.length
+                  ? codeSnippets.map((code_snippet, index) => (
+                      <CodeSnippet
+                        key={index}
+                        title={code_snippet.title}
+                        description={code_snippet.description}
+                        code={code_snippet.code}
+                      />
+                    ))
+                  : undefined}
+              </Masonry>
+            </ResponsiveMasonry>
           </div>
         </div>
       </div>
