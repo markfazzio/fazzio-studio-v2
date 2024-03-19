@@ -512,20 +512,6 @@ html {
   transition: all 0.3s ease-out 0s;
 }
 
-.sticky .navbar .navbar-nav .nav-item a {
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.sticky .navbar .navbar-nav .nav-item a.active,
-.sticky .navbar .navbar-nav .nav-item a:hover {
-  color: #37c2cc;
-}
-
-.sticky .navbar .navbar-nav .nav-item a.active::before,
-.sticky .navbar .navbar-nav .nav-item a:hover::before {
-  background: #37c2cc;
-}
-
 .sticky .navbar .navbar-toggler .toggler-icon {
   background: rgba(0, 0, 0, 0.9);
 }
@@ -629,11 +615,6 @@ html {
   }
 }
 
-.navbar-nav .nav-item {
-  position: relative;
-  padding: 8px 0;
-}
-
 @media only screen and (min-width: 768px) and (max-width: 991px),
   (max-width: 767px) {
   .navbar-nav .nav-item {
@@ -655,20 +636,6 @@ html {
   }
 }
 
-.navbar-nav .nav-item a {
-  color: rgba(0, 0, 0, 0.9);
-  -webkit-transition: all 0.3s ease-out 0s;
-  -moz-transition: all 0.3s ease-out 0s;
-  -ms-transition: all 0.3s ease-out 0s;
-  -o-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-  padding: 8px 17px;
-  position: relative;
-  font-weight: 500;
-  font-size: 18px;
-  text-align: center;
-}
-
 @media only screen and (min-width: 768px) and (max-width: 991px),
   (max-width: 767px) {
   .navbar-nav .nav-item a {
@@ -676,11 +643,6 @@ html {
     padding: 6px 0px;
     color: rgba(0, 0, 0, 0.9);
   }
-}
-
-.navbar-nav .nav-item a:hover,
-.navbar-nav .nav-item a.active {
-  color: #37c2cc;
 }
 
 @media (max-width: 767px) {
