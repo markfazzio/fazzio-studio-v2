@@ -14,7 +14,9 @@ export default function CodeSnippets({
   const onFilterChange = (event) => {
     console.log(event.target.value);
     const filteredSnippets = codeSnippets.filter((snippet) => {
-      return snippet.title.includes(event.target.value);
+      return snippet.title
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase());
     });
     setCurrentSnippets(filteredSnippets);
   };

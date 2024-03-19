@@ -10,14 +10,11 @@ export default function Features({
     <section id={scrollAnchorId} className="feature-section py-5">
       <div className="container">
         <div className="row">
-          <div className="col-lg-5 col-md-10">
-            <div className="section-title mb-60">
+          <div className="col">
+            <div className="section-title p-5 text-center mx-auto">
               <h2 className="mb-20">{headline}</h2>
               <p>{subheadline}</p>
             </div>
-          </div>
-
-          <div className="col-lg-7">
             <div className="row">
               {features.map((feature, index) => (
                 <Feature

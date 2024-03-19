@@ -35,10 +35,16 @@ export default function LandingPage({ page, blogPosts }) {
         />
       </Head>
 
-      {page.fields.body.map(({ type, fields: sectionData }, index) => (
-        <LandingPageSection key={index} type={type} sectionData={sectionData} />
-      ))}
-      <Blog posts={blogPosts} />
+      <div className="page page-landing">
+        {page.fields.body.map(({ type, fields: sectionData }, index) => (
+          <LandingPageSection
+            key={index}
+            type={type}
+            sectionData={sectionData}
+          />
+        ))}
+        <Blog posts={blogPosts} />
+      </div>
     </>
   );
 }

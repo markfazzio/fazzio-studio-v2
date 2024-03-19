@@ -15,8 +15,7 @@ export default function Hero({
           <div className="col-xl-6 col-lg-6 col-md-10">
             <div className="hero-content">
               <h1>{headline}</h1>
-              <p>{subheadline}</p>
-
+              {subheadline ? <p>{subheadline}</p> : undefined}
               {buttonLabel && buttonUrl ? (
                 <a href={buttonUrl} className="btn btn-primary">
                   {buttonLabel}
