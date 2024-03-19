@@ -10,12 +10,12 @@ import SearchWidget from "@/components/blog/search-widget";
 
 export default function Category({ posts, categories, slug }) {
   return (
-    <>
+    <div className="page page-category">
       <section id="blog-roll" className="py-5">
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row">
             <div className="col-12">
-              <div className="section-title text-center">
+              <div className="section-title">
                 <h2>Blog Posts by Category</h2>
                 <ul className="breadcrumb">
                   <li className="breadcrumb-item">
@@ -24,7 +24,7 @@ export default function Category({ posts, categories, slug }) {
                   <li className="breadcrumb-item">
                     <Link href="/blog">Blog</Link>
                   </li>
-                  <li>Category: {slug}</li>
+                  <li className="breadcrumb-item active">Category: {slug}</li>
                 </ul>
               </div>
             </div>
@@ -34,7 +34,7 @@ export default function Category({ posts, categories, slug }) {
 
       <section className="blog-posts">
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row">
             <PostsList posts={posts || []} />
             <aside className="col-12 col-lg-4">
               <SearchWidget />
@@ -43,7 +43,7 @@ export default function Category({ posts, categories, slug }) {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

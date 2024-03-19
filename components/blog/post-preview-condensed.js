@@ -9,8 +9,8 @@ export default function PostPreviewCondensed({
   slug,
 }) {
   return (
-    <div className="col-lg-4 col-md-8 col-sm-10 mb-3">
-      <div className="card">
+    <div className="col-xl-4 col-lg-6 col-md-6 mb-3">
+      <div className="card shadow-sm h-100">
         {coverImage && (
           <Image
             className="card-img"
@@ -26,7 +26,7 @@ export default function PostPreviewCondensed({
           </h5>
           <p className="card-text">{excerpt}</p>
         </div>
-        <div className="card-footer">
+        <div className="card-footer bg-white border-0 text-center">
           <Link href={`/blog/${slug}`} className="btn btn-primary">
             Read More
           </Link>

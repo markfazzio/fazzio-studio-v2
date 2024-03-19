@@ -13,9 +13,9 @@ export default function Tag({ posts, categories, slug }) {
     <div className="page page-tag">
       <section id="blog-roll" className="py-5">
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row">
             <div className="col-12">
-              <div className="section-title text-center">
+              <div className="section-title">
                 <h2>Blog Posts by Tag</h2>
                 <ul className="breadcrumb">
                   <li className="breadcrumb-item">
@@ -24,7 +24,7 @@ export default function Tag({ posts, categories, slug }) {
                   <li className="breadcrumb-item">
                     <Link href="/blog">Blog</Link>
                   </li>
-                  <li>Tag: {slug}</li>
+                  <li className="breadcrumb-item active">Tag: {slug}</li>
                 </ul>
               </div>
             </div>
@@ -34,7 +34,7 @@ export default function Tag({ posts, categories, slug }) {
 
       <section className="blog-posts">
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row">
             <PostsList posts={posts || []} />
             <aside className="col-12 col-lg-4">
               <SearchWidget />

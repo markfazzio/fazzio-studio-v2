@@ -16,7 +16,7 @@ export default function PostsPreview({
 }) {
   return (
     <div className="col-12 col-lg-6">
-      <div className="card bg-white mb-3">
+      <div className="card shadow-sm h-100 bg-white mb-3">
         {coverImage && (
           <Image
             className="card-img-top"
@@ -59,7 +59,7 @@ export default function PostsPreview({
             </ul>
           </div>
         ) : undefined}
-        <div className="card-footer text-center">
+        <div className="card-footer bg-white border-0 text-center">
           <Link href={`/blog/${slug}`} className="btn btn-primary">
             Read More
           </Link>
