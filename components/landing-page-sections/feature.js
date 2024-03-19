@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Feature({ headline, description, icon }) {
   return (
-    <div className="col">
+    <div className="col-lg-3 col-sm-6">
       <div className="single-feature text-center">
         <div className="feature-icon mb-3">
           {icon && (
