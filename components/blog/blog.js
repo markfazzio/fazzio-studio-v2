@@ -4,21 +4,19 @@ import PostPreviewCondensed from "./post-preview-condensed";
 
 export default function Blog({ posts }) {
   return (
-    <section id="blog" className="blog-section">
+    <section id="blog" className="py-5">
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row">
           <div className="col-lg-6 col-md-10">
-            <div className="section-title text-center">
-              <h2>Latest Blog Posts</h2>
-              <p>
-                <Link href={`/blog`} className="btn btn-primary mt-5">
-                  View All Blog Posts
-                </Link>
-              </p>
+            <div className="section-title d-flex mb-4">
+              <h2 className="mb-0 me-3">Latest Blog Posts</h2>
+              <Link href={`/blog`} className="btn btn-primary">
+                View All Blog Posts
+              </Link>
             </div>
           </div>
         </div>
-        <div className="row justify-content-center">
+        <div className="row">
           {posts.map((post) => (
             <PostPreviewCondensed
               key={post.slug}

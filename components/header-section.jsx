@@ -30,8 +30,11 @@ export default function HeaderSection({ mainMenu }) {
           <div className="row align-items-center">
             <div className="col-lg-12">
               <nav className="navbar navbar-expand-lg">
-                <a className="navbar-brand" href="https://markfazzio.com">
-                  markfazzio
+                <a
+                  className="navbar-brand text-primary fs-3"
+                  href="https://markfazzio.com"
+                >
+                  <strong>markfazzio</strong>
                 </a>
                 <MainMenu mainMenuLinks={mainMenu} />
               </nav>

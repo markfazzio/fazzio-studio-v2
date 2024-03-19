@@ -7,7 +7,7 @@ export default function CodeSnippet({ title, description, code }) {
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
-        <SyntaxHighlighter language="typescript" style={docco}>
+        <SyntaxHighlighter language="typescript" style={docco} showLineNumbers>
           {code}
         </SyntaxHighlighter>
       </div>

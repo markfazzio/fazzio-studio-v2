@@ -6,8 +6,10 @@ export default function AuthorCard({ author }) {
     <a>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        className="bg-info rounded-circle me-2"
         src={authorAvatar}
         alt={`Profile image ${author.first_name} ${author.last_name}`}
+        width={40}
       />
       {author.first_name} {author.last_name}
     </a>

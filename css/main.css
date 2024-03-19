@@ -4,6 +4,11 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  --bs-link-color: #0044da;
+  text-decoration: none;
+}
+
 .img-bg {
   background-position: center center;
   background-size: cover;
@@ -22,6 +27,10 @@ html {
 
 .success {
   color: green;
+}
+
+.page {
+  padding-top: 65px;
 }
 
 @media (max-width: 767px) {
@@ -496,6 +505,12 @@ html {
 
 .nav-link {
   --bs-navbar-nav-link-padding-x: 1rem;
+  --bs-nav-link-color: #000;
+}
+
+.navbar-nav .show > .nav-link,
+.navbar-nav .nav-link.active {
+  --bs-navbar-active-color: #0044da;
 }
 
 .sticky {
@@ -902,451 +917,6 @@ html {
   width: 100%;
 }
 
-/* =====================
-    BLOG CSS
-======================== */
-.blog-section {
-  padding-top: 160px;
-  background-image: url("../public/images/common-bg.svg");
-  background-size: cover;
-  background-position: bottom-center;
-}
-
-.blog-section .section-title {
-  margin-bottom: 60px;
-}
-
-@media only screen and (min-width: 1400px),
-  only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .blog-section .section-title {
-    padding: 0px 40px;
-  }
-}
-
-.blog-section .section-title h2 {
-  margin-bottom: 15px;
-}
-
-.single-blog,
-.single-post,
-.blog-roll-card {
-  background: #fff;
-  box-shadow: 0px 0px 50px rgba(183, 199, 240, 0.25);
-  border-radius: 14px;
-  padding: 52px 30px;
-  margin-bottom: 50px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.single-blog .populer,
-.single-post .populer,
-.blog-roll-card .populer {
-  position: absolute;
-  right: 10px;
-  top: 18px;
-  color: #fff;
-  z-index: 2;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.single-blog .blog-header,
-.single-post .blog-header,
-.blog-roll-card .blog-header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  /* changes for Image tag */
-  width: 100%;
-  height: 200px;
-  position: relative;
-  /* end of changes for Image tag */
-}
-
-.single-blog .blog-header h5,
-.single-post .blog-header h5,
-.blog-roll-card .blog-header h5 {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.single-blog .blog-header h2,
-.single-post .blog-header h2,
-.blog-roll-card .blog-header h2 {
-  font-size: 40px;
-  margin-bottom: 30px;
-}
-
-.single-blog .blog-header h2 span,
-.single-post .blog-header h2 span,
-.blog-roll-card .blog-header h2 span {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.5);
-  font-weight: 400;
-}
-
-.single-blog .blog-body,
-.single-post .blog-body,
-.blog-roll-card .blog-body {
-  padding-top: 30px;
-  padding-bottom: 25px;
-}
-
-.single-blog .blog-body ul li,
-.single-post .blog-body ul li,
-.blog-roll-card .blog-body ul li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.single-blog .blog-body ul li span.bolet,
-.single-post .blog-body ul li span.bolet,
-.blog-roll-card .blog-body ul li span.bolet {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 13px;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.single-blog .blog-body ul li span.bolet.active,
-.single-post .blog-body ul li span.bolet.active,
-.blog-roll-card .blog-body ul li span.bolet.active {
-  background: #37c2cc;
-}
-
-.single-blog .blog-body ul li p,
-.single-post .blog-body ul li p,
-.blog-roll-card .blog-body ul li p {
-  margin-bottom: 0px;
-}
-
-.single-blog div:first-of-type,
-.single-post div:first-of-type,
-.blog-roll-card div:first-of-type {
-  padding-top: 0;
-}
-
-.single-post-nav,
-.blog-roll-nav {
-  align-items: center;
-  background: linear-gradient(
-    180deg,
-    #c2fbff 0%,
-    rgba(255, 255, 255, 0) 93.47%
-  );
-  display: flex;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-
-@media only screen and (min-width: 550px) {
-  .single-post-nav,
-  .blog-roll-nav {
-    height: 350px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .single-post-nav,
-  .blog-roll-nav {
-    height: 430px;
-  }
-}
-
-.breadcrumb-nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 1em;
-}
-
-@media only screen and (min-width: 550px) {
-  .breadcrumb-nav {
-    flex-direction: row;
-  }
-}
-
-.breadcrumb-nav li a {
-  color: #37c2cc;
-  font-weight: 500;
-  display: inline-block;
-  position: relative;
-  padding-right: 15px;
-  margin-right: 15px;
-  text-transform: capitalize;
-}
-
-.breadcrumb-nav li::after {
-  content: "";
-  font-size: 10px;
-  position: relative;
-  font-family: lineIcons;
-  right: 11px;
-}
-
-.breadcrumb-nav li:last-child::after {
-  content: "";
-}
-
-.single-post,
-.blog-roll-card {
-  padding: 0px;
-}
-
-.single-post div:first-of-type,
-.blog-roll-card div:first-of-type {
-  padding-top: 30px;
-}
-
-.single-post-meta,
-.blog-roll-card-meta {
-  padding: 30px 16px 0 16px;
-}
-
-@media only screen and (min-width: 550px) {
-  .single-post-meta,
-  .blog-roll-card-meta {
-    padding: 42px 24px 0 24px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .single-post-meta,
-  .blog-roll-card-meta {
-    padding: 52px 30px 0 30px;
-  }
-}
-
-.single-post-header,
-.blog-roll-card-header {
-  margin-bottom: 20px;
-}
-
-.single-post-meta-info,
-.blog-roll-card-meta-info {
-  font-size: 14px;
-  display: inline-block;
-  position: relative;
-}
-
-.single-post-meta-info li,
-.blog-roll-card-meta-info li {
-  font-size: 14px;
-  display: inline-block;
-  margin-right: 15px;
-  padding-right: 15px;
-  position: relative;
-}
-
-.single-post-meta-info li a,
-.blog-roll-card-meta-info li a {
-  color: #888;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.single-post-meta-info li a img,
-.blog-roll-card-meta-info li a img {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 12px;
-}
-
-@media only screen and (min-width: 550px) {
-  .single-post-meta-info li a img,
-  .blog-roll-card-meta-info li a img {
-    height: 35px;
-    width: 35px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .single-post-meta-info li a img,
-  .blog-roll-card-meta-info li a img {
-    height: 50px;
-    width: 50px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .single-post-meta-info li::before,
-  .blog-roll-card-meta-info li::before {
-    position: absolute;
-    content: "";
-    right: -5px;
-    top: 50%;
-    background-color: #d2d2d2;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .single-post-meta-info li:last-of-type::before,
-  .blog-roll-card-meta-info li:last-of-type::before {
-    content: none;
-  }
-}
-
-.single-post-thumbnail {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0;
-  width: 100%;
-  margin-top: 15px;
-  /* changes for Image tag */
-  height: 300px;
-  /* end of changes for Image tag */
-}
-
-.single-post-thumbnail img {
-  width: 100%;
-}
-
-@media only screen and (min-width: 550px) {
-  .single-post-thumbnail {
-    margin-top: 42px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .single-post-thumbnail {
-    margin-top: 52px;
-  }
-}
-
-.single-post-body,
-.blog-roll-card-body {
-  padding: 30px 16px;
-}
-
-@media only screen and (min-width: 550px) {
-  .single-post-body,
-  .blog-roll-card-body {
-    padding: 42px 24px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .single-post-body,
-  .blog-roll-card-body {
-    padding: 52px 30px;
-  }
-}
-
-.single-post-body h3,
-.blog-roll-card-body h3,
-.single-post-body .single-post-header,
-.blog-roll-card-body .single-post-header,
-.single-post-body .blog-roll-card-header,
-.blog-roll-card-body .blog-roll-card-header {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.single-post-body p,
-.blog-roll-card-body p {
-  margin-bottom: 20px;
-}
-
-.single-post-body figure img,
-.blog-roll-card-body figure img {
-  max-width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  .blog-roll-card .single-post-thumbnail {
-    margin-top: 30px;
-  }
-}
-
-.blog-roll-card-meta {
-  padding: 15px 15px 0 15px;
-}
-
-@media only screen and (min-width: 768px) {
-  .blog-roll-card-meta {
-    padding: 30px 30px 0 30px;
-  }
-}
-
-.blog-roll-card-header a {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.blog-roll-card-header a:hover {
-  color: #37c2cc;
-}
-
-.blog-roll-card-body {
-  padding: 15px 15px 5px;
-}
-
-@media only screen and (min-width: 768px) {
-  .blog-roll-card-body {
-    padding: 30px 30px 10px;
-  }
-}
-
-.blog-roll-card-footer {
-  padding: 0px 15px 15px;
-}
-
-@media only screen and (min-width: 768px) {
-  .blog-roll-card-footer {
-    padding: 0 30px 30px;
-  }
-}
-
-/* =====================
-    TEAM SECTION CSS
-======================== */
-.team-section .single-team {
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.team-section .single-team .team-image {
-  max-width: 313px;
-  width: 100%;
-  border-radius: 50%;
-}
-
-.team-section .single-team .team-image img {
-  width: 100%;
-}
-
-.team-section .single-team .team-info {
-  position: absolute;
-  bottom: 30px;
-  right: 0;
-  background: #fff;
-  -webkit-box-shadow: 0px 8px 25px rgba(211, 211, 211, 0.25);
-  -moz-box-shadow: 0px 8px 25px rgba(211, 211, 211, 0.25);
-  box-shadow: 0px 8px 25px rgba(211, 211, 211, 0.25);
-  padding: 20px 30px;
-  min-width: 210px;
-  text-align: center;
-}
-
-.team-section .single-team .team-info h4 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.team-section .single-team .team-info p {
-  font-size: 14px;
-}
-
 /* ==========================
     FOOTER CSS
 ============================= */
@@ -1504,6 +1074,16 @@ html {
   background-color: #37c2cc;
   color: #fff;
   border-color: transparent;
+}
+
+/* overrides - TODO: do this in scss */
+.btn-primary {
+  --bs-btn-bg: #0044da;
+  --bs-btn-border-color: #0044da;
+}
+
+.text-primary {
+  color: #0044da !important;
 }
 
 /*# sourceMappingURL=main.css.map */

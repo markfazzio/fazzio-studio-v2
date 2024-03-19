@@ -16,46 +16,50 @@ export default function PostsPreview({
 }) {
   return (
     <div className="col-12 col-lg-6">
-      <div className="blog-roll-card">
-        <div className="blog-roll-card-meta">
-          <h2 className="blog-roll-card-header">
-            <Link href={`/blog/${slug}`}>{title}</Link>
-          </h2>
-          <ul className="blog-roll-card-meta-info">
-            <li>
-              <AuthorCard author={author} />
-            </li>
-            <li>
-              <i className="lni lni-calendar"></i>{" "}
-              <HumanDate dateString={date} />
-            </li>
-            {tags.map((tag) => (
-              <li key={tag.slug}>
-                <Link href={`/blog/tag/${tag.slug}`}>
-                  <i className="lni lni-tag"></i> {tag.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="card bg-white mb-3">
         {coverImage && (
-          <div className="single-post-thumbnail">
-            <Image
-              src={coverImage}
-              alt={coverImageAlt}
-              fill
-              sizes="100vw"
-              style={{
-                objectFit: "cover",
-              }}
-            />
-          </div>
+          <Image
+            className="card-img-top"
+            src={coverImage}
+            alt={coverImageAlt}
+            width={100}
+            height={200}
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+            }}
+          />
         )}
-        <div
-          className="blog-roll-card-body prose"
-          dangerouslySetInnerHTML={{ __html: excerpt }}
-        ></div>
-        <div className="blog-roll-card-footer text-center">
+        <div className="card-body">
+          <h5 className="card-title">
+            <Link href={`/blog/${slug}`}>{title}</Link>
+          </h5>
+          <div className="d-flex align-items-center mb-2">
+            <AuthorCard author={author} />
+            <div className="ms-auto d-flex align-items-center">
+              <i className="lni lni-calendar m-2"></i>{" "}
+              <HumanDate dateString={date} />
+            </div>
+          </div>
+          <div
+            className="card-text"
+            dangerouslySetInnerHTML={{ __html: excerpt }}
+          ></div>
+        </div>
+        {tags && tags.length ? (
+          <div className="card-tags px-3">
+            <ul className="list-inline">
+              {tags.map((tag) => (
+                <li className="list-inline-item" key={tag.slug}>
+                  <Link href={`/blog/tag/${tag.slug}`}>
+                    <i className="lni lni-tag"></i> {tag.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : undefined}
+        <div className="card-footer text-center">
           <Link href={`/blog/${slug}`} className="btn btn-primary">
             Read More
           </Link>

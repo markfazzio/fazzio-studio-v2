@@ -9,28 +9,24 @@ export default function PostPreviewCondensed({
   slug,
 }) {
   return (
-    <div className="col-lg-4 col-md-8 col-sm-10">
-      <div className="single-blog">
+    <div className="col-lg-4 col-md-8 col-sm-10 mb-3">
+      <div className="card">
         {coverImage && (
-          <div className="blog-header">
-            <Image
-              src={coverImage}
-              alt={coverImageAlt}
-              fill
-              sizes="100vw"
-              style={{
-                objectFit: "cover",
-              }}
-            />
-          </div>
+          <Image
+            className="card-img"
+            src={coverImage}
+            alt={coverImageAlt}
+            height={200}
+            width={100}
+          />
         )}
-        <div className="blog-body">
-          <h5 className="package-name">
+        <div className="card-body">
+          <h5 className="card-title">
             <Link href={`/blog/${slug}`}>{title}</Link>
           </h5>
-          <p>{excerpt}</p>
+          <p className="card-text">{excerpt}</p>
         </div>
-        <div className="blog-footer">
+        <div className="card-footer">
           <Link href={`/blog/${slug}`} className="btn btn-primary">
             Read More
           </Link>
