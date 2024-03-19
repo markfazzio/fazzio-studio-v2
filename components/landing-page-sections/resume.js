@@ -19,6 +19,7 @@ export default function Resume({
                 href={`https://cdn.buttercms.com/RSu3hdFATpOGIfBphfLd`}
                 className="btn btn-primary"
                 target="_blank"
+                rel="noreferrer"
               >
                 Download PDF
               </a>
