@@ -8,12 +8,15 @@ export default function CodeSnippets({
   scrollAnchorId,
 }) {
   return (
-    <section id={scrollAnchorId || "ts-snippets"} className="feature-section">
+    <section
+      id={scrollAnchorId || "ts-snippets"}
+      className="feature-section bg-dark py-5"
+    >
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="section-title mb-60">
-              <h2 className="mb-20">{headline || "Typescript Snippets"}</h2>
+            <div className="section-title text-light mb-5">
+              <h2 className="mb-3">{headline || "Typescript Snippets"}</h2>
               <p>
                 {description ||
                   "Useful pieces of code for use in your own app."}

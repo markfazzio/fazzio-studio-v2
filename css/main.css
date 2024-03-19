@@ -694,39 +694,6 @@ html {
   }
 }
 
-.hero-section::after {
-  content: "";
-  position: absolute;
-  width: 862px;
-  height: 862px;
-  border-radius: 50%;
-  right: -150px;
-  top: -150px;
-  background: #99ecf2;
-  z-index: -1;
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .hero-section::after {
-    width: 780px;
-    height: 780px;
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .hero-section::after {
-    width: 750px;
-    height: 750px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px),
-  (max-width: 767px) {
-  .hero-section::after {
-    display: none;
-  }
-}
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .hero-section .hero-content {
     padding-top: 50px;
@@ -784,15 +751,6 @@ html {
 /* ===============================
     FEATURE SECTION ONE CSS
 ================================== */
-.feature-section {
-  position: relative;
-  background-image: url("../public/images/common-bg.svg");
-  background-size: cover;
-  background-position: bottom center;
-  padding-top: 180px;
-  padding-bottom: 55px;
-}
-
 .single-feature {
   margin-bottom: 65px;
 }
