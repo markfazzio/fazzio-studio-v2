@@ -10,8 +10,6 @@ export default function Blog({ posts }) {
                     <div className="col-lg-6 col-md-10">
                         <div className="section-title text-center">
                             <h2>Latest Blog Posts</h2>
-                            <p>Butter also has a built in blog engine which makes it dead simple
-                                to launch a new company blog.
                             </p>
                             <p>
                                 <Link href={`/blog`} className="main-btn btn-hover mt-5">

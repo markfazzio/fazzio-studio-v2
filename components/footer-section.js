@@ -1,14 +1,14 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function FooterSection({ mainMenu }) {
-    const links = mainMenu.map(link => ({
-        ...link,
-        url: link.url[0] === "#" ? `/${link.url}` : link.url})
-    )
+  const links = mainMenu.map((link) => ({
+    ...link,
+    url: link.url[0] === "#" ? `/${link.url}` : link.url,
+  }));
 
-    return (
-        <footer className="footer pt-120">
-            <div className="container">
+  return (
+    <footer className="footer pt-120">
+      {/* <div className="container">
                 <div className="row">
                     <div className="col-xl-3 col-lg-4 col-md-6 col-sm-10">
                         <div className="footer-widget">
@@ -57,7 +57,7 @@ export default function FooterSection({ mainMenu }) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-    );
+            </div> */}
+    </footer>
+  );
 }
