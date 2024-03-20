@@ -18,6 +18,7 @@ export default function CodeSnippetsGrid({ codeSnippets }) {
                   title={code_snippet.title}
                   description={code_snippet.description}
                   code={code_snippet.code}
+                  category={code_snippet.category}
                 />
               ))}
             </Masonry>

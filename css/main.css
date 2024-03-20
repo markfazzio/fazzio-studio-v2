@@ -1004,4 +1004,9 @@ a {
   color: #0044da !important;
 }
 
+.code-snippet__category {
+  right: -5px;
+  top: -5px;
+}
+
 /*# sourceMappingURL=main.css.map */
