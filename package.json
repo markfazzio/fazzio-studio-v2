@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-starter-buttercms",
+  "name": "fazzio-studio-v2",
   "private": true,
   "scripts": {
     "dev": "next dev",
