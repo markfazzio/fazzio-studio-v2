@@ -20,11 +20,12 @@ export default function CodeSnippets({ page }) {
   const [currentSnippets, setCurrentSnippets] = useState(codeSnippets || []);
 
   const onFilterChange = (event) => {
-    console.log(event.target.value);
+    const lowerCaseValue = event.target.value.toLowerCase();
     const filteredSnippets = codeSnippets.filter((snippet) => {
-      return snippet.title
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase());
+      return (
+        snippet.title.toLowerCase().includes(lowerCaseValue) ||
+        (snippet.category && snippet.category.includes(lowerCaseValue))
+      );
     });
     setCurrentSnippets(filteredSnippets);
   };
@@ -54,7 +55,7 @@ export default function CodeSnippets({ page }) {
                   placeholder="e.g. FizzBuzz"
                 />
                 <label htmlFor="snippetFilter">
-                  Filter snippets by title...
+                  Filter by title or category
                 </label>
               </div>
             </div>
