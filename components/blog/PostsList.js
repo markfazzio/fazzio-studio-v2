@@ -1,4 +1,4 @@
-import PostsPreview from "./post-preview";
+import PostsPreview from "./PostPreview";
 
 export default function PostsList({ posts }) {
   return (

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function TwoColumnWithImage({
+export default function TwoColumnWithImageSection({
   headline,
   subheadline,
   buttonLabel,

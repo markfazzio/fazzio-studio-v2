@@ -2,14 +2,14 @@ import dynamic from "next/dynamic";
 
 import camelcaseKeys from "camelcase-keys";
 
-import Preloader from "@/components/preloader";
-import MissingSection from "./missing-section";
+import Preloader from "@/components/LoadingSpinner";
+import MissingSection from "./MissingSection";
 
 export default function LandingPageSection({ type, sectionData }) {
   const sectionsComponentPaths = () => ({
     hero: dynamic(
       () =>
-        import("@/components/landing-page-sections/hero").catch(
+        import("@/components/landing-page-sections/HeroSection").catch(
           () => () => MissingSection
         ),
       {
@@ -19,7 +19,7 @@ export default function LandingPageSection({ type, sectionData }) {
     two_column_with_image: dynamic(
       () =>
         import(
-          "@/components/landing-page-sections/two-column-with-image"
+          "@/components/landing-page-sections/TwoColumnWithImageSection"
         ).catch(() => () => MissingSection),
       {
         loading: Preloader,
@@ -27,7 +27,7 @@ export default function LandingPageSection({ type, sectionData }) {
     ),
     features: dynamic(
       () =>
-        import("@/components/landing-page-sections/features").catch(
+        import("@/components/landing-page-sections/FeaturesSection").catch(
           () => () => MissingSection
         ),
       {
@@ -36,7 +36,7 @@ export default function LandingPageSection({ type, sectionData }) {
     ),
     code_snippets: dynamic(
       () =>
-        import("@/components/landing-page-sections/code-snippets").catch(
+        import("@/components/CodeSnippetsGrid").catch(
           () => () => MissingSection
         ),
       {
@@ -45,7 +45,7 @@ export default function LandingPageSection({ type, sectionData }) {
     ),
     resume: dynamic(
       () =>
-        import("@/components/landing-page-sections/resume").catch(
+        import("@/components/landing-page-sections/ResumeSection").catch(
           () => () => MissingSection
         ),
       {

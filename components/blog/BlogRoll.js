@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import PostPreviewCondensed from "./post-preview-condensed";
+import PostPreviewCondensed from "./PostPreviewCondensed";
 
-export default function Blog({ posts }) {
+export default function BlogRoll({ posts }) {
   return (
     <section id="blog" className="py-5">
       <div className="container">

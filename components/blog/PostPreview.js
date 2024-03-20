@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import HumanDate from "@/components/human-date";
-import AuthorCard from "@/components/author-card";
+import HumanDate from "@/components/HumanDate";
+import AuthorCard from "@/components/AuthorCard";
 
 export default function PostsPreview({
   title,

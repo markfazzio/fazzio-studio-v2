@@ -1,4 +1,4 @@
-export default function Resume({
+export default function ResumeSection({
   headline,
   description,
   resume,

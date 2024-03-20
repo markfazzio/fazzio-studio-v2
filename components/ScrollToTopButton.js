@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function ScrollToButtonButton() {
+export default function ScrollToTopButton() {
   const [hasScrollToTopButton, setHasScrollToTopButton] = useState(false);
 
   function toggleScrollTopButton() {

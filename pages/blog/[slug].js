@@ -7,16 +7,16 @@ import camelcaseKeys from "camelcase-keys";
 
 import { getPost, getPostsData, getCategories } from "@/lib/api";
 
-import HumanDate from "@/components/human-date";
-import CategoriesWidget from "@/components/blog/categories-widget";
-import SearchWidget from "@/components/blog/search-widget";
-import AuthorCard from "@/components/author-card";
-import Preloader from "@/components/preloader";
+import HumanDate from "@/components/HumanDate";
+import CategoriesWidget from "@/components/blog/CategoriesWidget";
+import SearchWidget from "@/components/blog/SearchWidget";
+import AuthorCard from "@/components/AuthorCard";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export default function BlogPost({ post, categories }) {
   const router = useRouter();
   if (router.isFallback) {
-    return <Preloader />;
+    return <LoadingSpinner />;
   }
 
   if (!post) {

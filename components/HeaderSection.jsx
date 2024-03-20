@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-import MainMenu from "./main-menu/main-menu";
+import MainMenu from "./main-menu/MainMenu";
 
 export default function HeaderSection({ mainMenu }) {
   const [isNavbarSticky, setIsNavbarSticky] = useState(false);

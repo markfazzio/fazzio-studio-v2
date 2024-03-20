@@ -2,11 +2,11 @@ import Link from "next/link";
 
 import camelcaseKeys from "camelcase-keys";
 
-import PostsList from "@/components/blog/posts-list";
+import PostsList from "@/components/blog/PostsList";
 
 import { getPostsData, getCategories } from "@/lib/api";
-import CategoriesWidget from "@/components/blog/categories-widget";
-import SearchWidget from "@/components/blog/search-widget";
+import CategoriesWidget from "@/components/blog/CategoriesWidget";
+import SearchWidget from "@/components/blog/SearchWidget";
 
 export default function Category({ posts, categories, slug }) {
   return (

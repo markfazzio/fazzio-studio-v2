@@ -6,14 +6,14 @@ import camelcaseKeys from "camelcase-keys";
 
 import { getLandingPage, getLandingPages, getPostsData } from "@/lib/api";
 
-import LandingPageSection from "@/components/landing-page-sections/landing-page-section";
-import Blog from "@/components/blog/blog";
-import Preloader from "@/components/preloader";
+import LandingPageSection from "@/components/landing-page-sections/LandingPageSection";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import BlogRoll from "@/components/blog/BlogRoll";
 
 export default function LandingPage({ page, blogPosts }) {
   const router = useRouter();
   if (router.isFallback) {
-    return <Preloader />;
+    return <LoadingSpinner />;
   }
 
   if (!page) {
@@ -43,7 +43,7 @@ export default function LandingPage({ page, blogPosts }) {
             sectionData={sectionData}
           />
         ))}
-        <Blog posts={blogPosts} />
+        <BlogRoll posts={blogPosts} />
       </div>
     </>
   );

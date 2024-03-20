@@ -1,4 +1,4 @@
-export default function Preloader() {
+export default function LoadingSpinner() {
   return (
     <div className="preloader">
       <div className="loader">
