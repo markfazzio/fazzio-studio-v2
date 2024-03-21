@@ -3,11 +3,17 @@ import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 
 export default function UIToast(props: ToastProps) {
-  // const {children} = props;
+  const { autohide = true, children, onClose, show } = props;
   return (
-    <ToastContainer className="position-static">
-      <Toast>
-        <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
+    <ToastContainer className="p-3" position="top-end">
+      <Toast
+        autohide={autohide}
+        onClose={onClose}
+        show={show}
+        delay={3000}
+        bg="info"
+      >
+        <Toast.Body>{children}</Toast.Body>
       </Toast>
     </ToastContainer>
   );

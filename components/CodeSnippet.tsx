@@ -8,6 +8,8 @@ import { slugToWords } from "@/utils/string-utils";
 
 // interfaces
 import { ICodeSnippet } from "@/interfaces/common";
+import UIButton from "./global/UIButton";
+import UIToast from "./global/UIToast";
 
 export default function CodeSnippet(props: ICodeSnippet) {
   const { title, category, description, code } = props;
@@ -68,35 +70,15 @@ export default function CodeSnippet(props: ICodeSnippet) {
             </SyntaxHighlighter>
             <div className="text-end">
               <CopyToClipboard text={code} onCopy={() => setIsCopied(true)}>
-                <button className="btn btn-outline-dark">Copy</button>
+                <UIButton variant="outline-dark">Copy</UIButton>
               </CopyToClipboard>
             </div>
           </>
         ) : undefined}
       </div>
-      {isCopied ? (
-        <div className="toast-container position-fixed top-0 end-0 p-3">
-          <div
-            className="toast show align-items-center text-bg-primary border-0"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            <div className="d-flex">
-              <div className="toast-body">
-                Code snippet copied to clipboard!
-              </div>
-              <button
-                type="button"
-                className="btn-close btn-close-white me-2 m-auto"
-                data-bs-dismiss="toast"
-                aria-label="Close"
-                onClick={() => setIsCopied(false)}
-              ></button>
-            </div>
-          </div>
-        </div>
-      ) : undefined}
+      <UIToast show={isCopied} onClose={() => setIsCopied(false)}>
+        Code snippet copied to clipboard!
+      </UIToast>
     </div>
   );
 }

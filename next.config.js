@@ -30,7 +30,7 @@ module.exports = {
         }));
   },
   images: {
-    domains: ["cdn.buttercms.com"],
+    domains: ["cdn.buttercms.com", "d1ts43dypk8bqh.cloudfront.net"],
     dangerouslyAllowSVG: true,
   },
 };

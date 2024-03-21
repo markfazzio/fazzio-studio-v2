@@ -1,5 +1,6 @@
 // interfaces
 import { IAuthor } from "@/interfaces/common";
+import Image from "next/image";
 
 interface AuthorCardProps {
   author: IAuthor;
@@ -13,12 +14,13 @@ export default function AuthorCard(props: AuthorCardProps) {
 
   return (
     <a>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         className="bg-info rounded-circle me-2"
         src={authorAvatar}
         alt={`Profile image ${author.first_name} ${author.last_name}`}
+        sizes="100vw"
         width={40}
+        height={40}
       />
       {author.first_name} {author.last_name}
     </a>
