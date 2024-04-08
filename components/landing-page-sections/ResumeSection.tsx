@@ -22,7 +22,7 @@ export default function ResumeSection(props: ResumeSectionProps) {
               <h2 className="mb-0 me-3">{headline || "Resume"}</h2>
               <a
                 href={`https://markfazzio.com/mark-fazzio-resume-2024.pdf`}
-                className="btn btn-primary"
+                className="btn btn-primary ms-auto"
                 target="_blank"
                 rel="noreferrer"
               >

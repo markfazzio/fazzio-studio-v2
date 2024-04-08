@@ -37,6 +37,7 @@ export interface ICodeSnippet {
   category?: string;
   description?: string;
   code?: string;
+  copyButtonLocation?: "top" | "bottom";
 }
 
 export interface IFeature {

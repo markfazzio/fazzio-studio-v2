@@ -576,4 +576,8 @@ a {
   background: #f8f8ff;
 }
 
+.accordion-body .card {
+  border: none;
+}
+
 /*# sourceMappingURL=main.css.map */

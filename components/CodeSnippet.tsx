@@ -12,7 +12,13 @@ import UIButton from "./global/UIButton";
 import UIToast from "./global/UIToast";
 
 export default function CodeSnippet(props: ICodeSnippet) {
-  const { title, category, description, code } = props;
+  const {
+    title,
+    category,
+    copyButtonLocation = "bottom",
+    description,
+    code,
+  } = props;
 
   const [isCopied, setIsCopied] = useState(false);
   const CATEGORY_VARIANTS = {
@@ -64,7 +70,14 @@ export default function CodeSnippet(props: ICodeSnippet) {
         <h5 className="card-title">{title}</h5>
         <div className="card-text" dangerouslySetInnerHTML={createMarkup()} />
         {code ? (
-          <>
+          <div className="card-code position-relative">
+            {copyButtonLocation === "top" ? (
+              <div className="position-absolute top-0 end-0 me-3 mt-3">
+                <CopyToClipboard text={code} onCopy={() => setIsCopied(true)}>
+                  <UIButton variant="secondary">Copy</UIButton>
+                </CopyToClipboard>
+              </div>
+            ) : undefined}
             <SyntaxHighlighter
               language="typescript"
               style={docco}
@@ -72,12 +85,14 @@ export default function CodeSnippet(props: ICodeSnippet) {
             >
               {code}
             </SyntaxHighlighter>
-            <div className="text-end">
-              <CopyToClipboard text={code} onCopy={() => setIsCopied(true)}>
-                <UIButton variant="outline-dark">Copy</UIButton>
-              </CopyToClipboard>
-            </div>
-          </>
+            {copyButtonLocation === "bottom" ? (
+              <div className="text-end">
+                <CopyToClipboard text={code} onCopy={() => setIsCopied(true)}>
+                  <UIButton variant="outline-dark">Copy</UIButton>
+                </CopyToClipboard>
+              </div>
+            ) : undefined}
+          </div>
         ) : undefined}
       </div>
       <UIToast show={isCopied} onClose={() => setIsCopied(false)}>

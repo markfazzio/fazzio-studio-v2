@@ -26,16 +26,18 @@ export default function FooterSection(props: FooterSectionProps) {
             <div className="footer-widget">
               <div className="logo d-flex align-items-center justify-content-end">
                 <span className="me-2">Built With</span>
-                <Image
-                  width={200}
-                  height={50}
-                  src="https://cdn.buttercms.com/PBral0NQGmmFzV0uG7Q6"
-                  alt="logo"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
-                />
+                <a href="https://buttercms.com" target="_blank">
+                  <Image
+                    width={200}
+                    height={50}
+                    src="https://cdn.buttercms.com/PBral0NQGmmFzV0uG7Q6"
+                    alt="logo"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
+                  />
+                </a>
               </div>
             </div>
           </div>

@@ -40,6 +40,7 @@ export default function CodeSnippetsGrid(props: CodeSnippetsGridProps) {
                               description={codeSnippet.description}
                               code={codeSnippet.code}
                               category={codeSnippet.category}
+                              copyButtonLocation="top"
                             />
                           </Accordion.Body>
                         </Accordion.Item>
