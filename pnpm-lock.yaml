@@ -31,7 +31,7 @@ dependencies:
     version: 18.2.0
   react-bootstrap:
     specifier: ^2.10.2
-    version: 2.10.2(react-dom@18.2.0)(react@18.2.0)
+    version: 2.10.2(@types/react@18.2.74)(react-dom@18.2.0)(react@18.2.0)
   react-copy-to-clipboard:
     specifier: ^5.1.0
     version: 5.1.0(react@18.2.0)
@@ -58,6 +58,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.11.30
     version: 20.12.5
+  '@types/react':
+    specifier: ^18.2.74
+    version: 18.2.74
   '@types/react-copy-to-clipboard':
     specifier: ^5.0.7
     version: 5.0.7
@@ -2354,7 +2357,7 @@ packages:
       strip-json-comments: 2.0.1
     dev: false
 
-  /react-bootstrap@2.10.2(react-dom@18.2.0)(react@18.2.0):
+  /react-bootstrap@2.10.2(@types/react@18.2.74)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-UvB7mRqQjivdZNxJNEA2yOQRB7L9N43nBnKc33K47+cH90/ujmnMwatTCwQLu83gLhrzAl8fsa6Lqig/KLghaA==}
     peerDependencies:
       '@types/react': '>=16.14.8'
@@ -2367,6 +2370,7 @@ packages:
       '@babel/runtime': 7.24.4
       '@restart/hooks': 0.4.16(react@18.2.0)
       '@restart/ui': 1.6.8(react-dom@18.2.0)(react@18.2.0)
+      '@types/react': 18.2.74
       '@types/react-transition-group': 4.4.10
       classnames: 2.5.1
       dom-helpers: 5.2.1
