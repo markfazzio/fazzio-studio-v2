@@ -26,7 +26,10 @@ export default function CodeSnippetsGrid(props: CodeSnippetsGridProps) {
                   <Accordion>
                     {codeSnippets.map(
                       (codeSnippet: ICodeSnippet, index: number) => (
-                        <Accordion.Item eventKey={index}>
+                        <Accordion.Item
+                          eventKey={index.toString()}
+                          key={`accordion-code-snippet-${index}`}
+                        >
                           <Accordion.Header>
                             {codeSnippet.title}
                           </Accordion.Header>
