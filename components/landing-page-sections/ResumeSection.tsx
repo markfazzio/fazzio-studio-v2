@@ -21,7 +21,7 @@ export default function ResumeSection(props: ResumeSectionProps) {
             <div className="section-title d-flex mb-4">
               <h2 className="mb-0 me-3">{headline || "Resume"}</h2>
               <a
-                href={`https://cdn.buttercms.com/RSu3hdFATpOGIfBphfLd`}
+                href={`https://markfazzio.com/mark-fazzio-resume-2024.pdf`}
                 className="btn btn-primary"
                 target="_blank"
                 rel="noreferrer"

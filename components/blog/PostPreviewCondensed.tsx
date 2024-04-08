@@ -27,12 +27,15 @@ export default function PostPreviewCondensed(props: IPostPreview) {
           <h5 className="card-title">
             <Link href={`/blog/${slug}`}>{title}</Link>
           </h5>
-          <p className="card-text">{excerpt}</p>
-        </div>
-        <div className="card-footer bg-white border-0 text-center">
-          <Link href={`/blog/${slug}`} className="btn btn-primary">
-            Read More
-          </Link>
+          <p className="card-text">
+            {excerpt}{" "}
+            <Link
+              href={`/blog/${slug}`}
+              className="btn btn-link py-0 px-2 lh-1"
+            >
+              Read More
+            </Link>
+          </p>
         </div>
       </div>
     </div>

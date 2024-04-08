@@ -4,6 +4,13 @@ html {
   scroll-behavior: smooth;
 }
 
+#__next {
+  height: 100;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   --bs-link-color: #0044da;
   text-decoration: none;
@@ -399,17 +406,6 @@ a {
 /* ==========================
     FOOTER CSS
 ============================= */
-.footer .footer-widget {
-  margin-bottom: 50px;
-}
-
-.footer .footer-widget .logo {
-  margin-bottom: 30px;
-}
-
-.footer .footer-widget .desc {
-  margin-bottom: 25px;
-}
 
 .footer .footer-widget .social-links {
   display: flex;
@@ -526,6 +522,11 @@ a {
   z-index: 1;
 }
 
+.categories-widget .categories-list {
+  margin: 0;
+  padding: 0;
+}
+
 .categories-widget .categories-list li {
   display: inline;
 }
@@ -568,6 +569,11 @@ a {
 .code-snippet__category {
   right: -5px;
   top: -5px;
+}
+
+.single-post pre {
+  padding: 1rem;
+  background: #f8f8ff;
 }
 
 /*# sourceMappingURL=main.css.map */

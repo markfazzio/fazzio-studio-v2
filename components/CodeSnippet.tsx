@@ -47,6 +47,10 @@ export default function CodeSnippet(props: ICodeSnippet) {
     }
   };
 
+  function createMarkup(): any {
+    return { __html: description };
+  }
+
   return (
     <div className="card code-snippet position-relative">
       {category ? (
@@ -58,7 +62,7 @@ export default function CodeSnippet(props: ICodeSnippet) {
       ) : undefined}
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
+        <div className="card-text" dangerouslySetInnerHTML={createMarkup()} />
         {code ? (
           <>
             <SyntaxHighlighter

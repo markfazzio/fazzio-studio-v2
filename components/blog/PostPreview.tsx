@@ -25,8 +25,8 @@ export default function PostsPreview(props: IPostPreview) {
   }
 
   return (
-    <div className="col-12 col-lg-6">
-      <div className="card shadow-sm h-100 bg-white mb-3">
+    <div className="col-xl-6 mb-4">
+      <div className="card shadow-sm h-100 bg-white">
         {coverImage && (
           <Image
             className="card-img-top"
@@ -55,10 +55,13 @@ export default function PostsPreview(props: IPostPreview) {
           </div>
           {excerpt ? (
             <div
-              className="card-text"
+              className="card-text d-inline"
               dangerouslySetInnerHTML={createMarkup()}
             />
           ) : undefined}
+          <Link href={`/blog/${slug}`} className="btn btn-link py-0 px-2 lh-1">
+            Read More
+          </Link>
         </div>
         {tags && tags.length ? (
           <div className="card-tags px-3">
@@ -73,11 +76,6 @@ export default function PostsPreview(props: IPostPreview) {
             </ul>
           </div>
         ) : undefined}
-        <div className="card-footer bg-white border-0 text-center">
-          <Link href={`/blog/${slug}`} className="btn btn-primary">
-            Read More
-          </Link>
-        </div>
       </div>
     </div>
   );

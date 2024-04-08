@@ -42,6 +42,9 @@ export default function LandingPage(props: LandingPageProps) {
       </Head>
 
       <div className="page page-landing">
+        <section className="landing-blog bg-secondary-subtle">
+          <BlogRoll posts={blogPosts} />
+        </section>
         {page.fields.body.map(
           ({ type, fields: sectionData }: any, index: number) => (
             <LandingPageSection
@@ -51,7 +54,6 @@ export default function LandingPage(props: LandingPageProps) {
             />
           )
         )}
-        <BlogRoll posts={blogPosts} />
       </div>
     </>
   );
@@ -60,7 +62,7 @@ export default function LandingPage(props: LandingPageProps) {
 export async function getStaticProps({ params }: any) {
   try {
     const page = await getLandingPage(params.slug);
-    const blogPosts = (await getPostsData({ page: 1, pageSize: 2 } as any))
+    const blogPosts = (await getPostsData({ page: 1, pageSize: 3 } as any))
       .posts;
 
     return {

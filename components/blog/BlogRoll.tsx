@@ -16,10 +16,10 @@ export default function BlogRoll(props: BlogRollProps) {
     <section id="blog" className="py-5">
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 col-md-10">
+          <div className="col">
             <div className="section-title d-flex mb-4">
-              <h2 className="mb-0 me-3">Latest Blog Posts</h2>
-              <Link href={`/blog`} className="btn btn-primary">
+              <h2 className="mb-0 me-3">Latest Posts</h2>
+              <Link href={`/blog`} className="btn btn-primary ms-auto">
                 View All Blog Posts
               </Link>
             </div>
