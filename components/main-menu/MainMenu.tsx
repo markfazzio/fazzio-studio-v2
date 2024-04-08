@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 
 import MainMenuLink from "./MainMenuLink";
@@ -23,49 +23,6 @@ export default function MainMenu(props: MainMenuProps) {
     }
   }
 
-  function highlightLinks() {
-    const sections = document.querySelectorAll(".page-scroll");
-    const scrollPos =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop;
-
-    sections.forEach((currLink) => {
-      const val = currLink.getAttribute("href");
-      let refElement: any = undefined;
-
-      if (val) {
-        if (val.includes("#")) {
-          refElement = document.querySelector(val.replace("/", ""));
-        } else {
-          refElement = document.querySelector(`#${val.replace("/", "")}`);
-        }
-      }
-
-      if (!refElement) {
-        return;
-      }
-
-      const scrollTopMinus = scrollPos + 73;
-
-      if (
-        val &&
-        refElement.offsetTop <= scrollTopMinus &&
-        refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
-      ) {
-        setActiveMenuLink(val);
-      }
-    });
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", highlightLinks);
-
-    return () => {
-      window.removeEventListener("scroll", highlightLinks);
-    };
-  }, []);
-
   return (
     <>
       <button
@@ -84,7 +41,9 @@ export default function MainMenu(props: MainMenuProps) {
       </button>
 
       <div
-        className="collapse navbar-collapse sub-menu-bar"
+        className={`collapse navbar-collapse sub-menu-bar ${
+          isMenuActive ? "show" : ""
+        }`}
         ref={menuLinksEl}
         id="navbarSupportedContent"
       >
