@@ -550,8 +550,22 @@ a {
   background: #f8f8ff;
 }
 
+.accordion-button:hover {
+  background-color: var(--bs-light);
+}
+
 .accordion-body .card {
   border: none;
+}
+
+.card {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.card:hover {
+  top: -10px;
 }
 
 /*# sourceMappingURL=main.css.map */

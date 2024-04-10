@@ -15,13 +15,20 @@ export default function PostPreviewCondensed(props: IPostPreview) {
     <div className="col-xl-4 col-lg-6 col-md-6 mb-3">
       <div className="card shadow-sm h-100">
         {coverImage && (
-          <Image
-            className="card-img"
-            src={coverImage}
-            alt={coverImageAlt}
-            height={200}
-            width={100}
-          />
+          <div style={{ height: "200px", overflow: "hidden" }}>
+            <Image
+              className="card-img"
+              src={coverImage}
+              alt={coverImageAlt}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+              width={420}
+              height={300}
+            />
+          </div>
         )}
         <div className="card-body">
           <h5 className="card-title">
