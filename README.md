@@ -29,7 +29,7 @@ $ echo 'NEXT_PUBLIC_BUTTER_CMS_API_KEY=<Your API Token>' >> .env
 To view the app in a browser, you'll need to run the local development server:
 
 ```bash
-npm run dev # or yarn dev
+pnpm dev
 ```
 
 Congratulations! Your starter project is now live: [http://localhost:3000](http://localhost:3000).

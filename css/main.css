@@ -568,4 +568,12 @@ a {
   top: -10px;
 }
 
+.resume-content .table {
+  --bs-table-bg: transparent;
+}
+
+.resume-content .table-sm td {
+  padding: 0;
+}
+
 /*# sourceMappingURL=main.css.map */

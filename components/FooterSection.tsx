@@ -21,7 +21,7 @@ export default function FooterSection(props: FooterSectionProps) {
     <footer className="footer py-4 mt-auto">
       <div className="container">
         <div className="row align-items-center">
-          <div className="col">Updated: 4.8.24</div>
+          <div className="col">Updated: 6.11.24</div>
           <div className="col ms-auto">
             <div className="footer-widget">
               <div className="logo d-flex align-items-center justify-content-end">

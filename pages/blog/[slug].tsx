@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,11 +8,10 @@ import camelcaseKeys from "camelcase-keys";
 import { getPost, getPostsData, getCategories } from "@/lib/api";
 
 // components
-import HumanDate from "@/components/HumanDate";
 import CategoriesWidget from "@/components/blog/CategoriesWidget";
 import SearchWidget from "@/components/blog/SearchWidget";
-import AuthorCard from "@/components/AuthorCard";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import SinglePost from "@/components/SinglePost";
 
 // interfaces
 import { ICategory, IPost } from "@/interfaces/common";
@@ -33,10 +31,6 @@ export default function BlogPost(props: BlogPostProps) {
 
   if (!post) {
     return <ErrorPage statusCode={404} />;
-  }
-
-  function createMarkup(): any {
-    return { __html: post.body };
   }
 
   return (
@@ -89,42 +83,7 @@ export default function BlogPost(props: BlogPostProps) {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-12 col-12">
-                <div className="single-post">
-                  <div className="single-post-meta">
-                    <div className="d-flex align-items-center mb-2">
-                      {post.author ? (
-                        <AuthorCard author={post.author} />
-                      ) : undefined}
-                      {post.published ? (
-                        <div className="ms-auto d-flex align-items-center">
-                          <i className="lni lni-calendar m-2"></i>{" "}
-                          <HumanDate dateString={post.published} />
-                        </div>
-                      ) : undefined}
-                    </div>
-                  </div>
-                  {post.featuredImage && (
-                    <div className="single-post-thumbnail">
-                      <Image
-                        src={post.featuredImage}
-                        alt={post.featuredImageAlt}
-                        sizes="100vw"
-                        style={{
-                          width: "100%",
-                          height: "auto",
-                        }}
-                        width={500}
-                        height={300}
-                      />
-                    </div>
-                  )}
-                  {post.body ? (
-                    <div
-                      className="px-3 py-5"
-                      dangerouslySetInnerHTML={createMarkup()}
-                    />
-                  ) : undefined}
-                </div>
+                <SinglePost post={post} />
               </div>
 
               <aside className="col-12 col-lg-4">
