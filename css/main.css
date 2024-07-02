@@ -572,8 +572,8 @@ a {
   --bs-table-bg: transparent;
 }
 
-.resume-content .table-sm td {
-  padding: 0;
+.resume-content table td {
+  padding-right: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */
