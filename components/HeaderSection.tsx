@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 
 import MainMenu from "./main-menu/MainMenu";
 import { IMainMenuLink } from "@/interfaces/common";
+import { Nav, NavbarBrand } from "react-bootstrap";
 
 interface HeaderSectionProps {
   mainMenu?: Array<IMainMenuLink>;
@@ -35,15 +36,15 @@ export default function HeaderSection(props: HeaderSectionProps) {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-12">
-              <nav className="navbar navbar-expand-lg">
-                <a
-                  className="navbar-brand text-primary fs-3"
+              <Nav className="navbar navbar-expand-lg">
+                <NavbarBrand
+                  className="text-primary fs-3"
                   href="https://markfazzio.com"
                 >
                   <strong>markfazzio</strong>
-                </a>
+                </NavbarBrand>
                 <MainMenu links={mainMenu} />
-              </nav>
+              </Nav>
             </div>
           </div>
         </div>

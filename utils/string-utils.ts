@@ -8,3 +8,13 @@ export const slugToWords = (slug: string): string | undefined => {
     .toUpperCase()
     .replace(" ", "");
 };
+
+export const labelToId = (label: string) => {
+  if (!label) return;
+
+  return label.replace(" ", "-").toLowerCase();
+};
+
+export const isAbsoluteUrl = (url: string) => {
+  return url && url.includes("http");
+};

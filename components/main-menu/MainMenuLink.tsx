@@ -1,22 +1,23 @@
+import { Nav } from "react-bootstrap";
+
 // interfaces
 import { IMainMenuLink } from "@/interfaces/common";
+import { isAbsoluteUrl } from "@/utils/string-utils";
 
 export default function MainMenuLink(props: IMainMenuLink) {
-  const { url, label, active, onClick } = props;
+  const { url, children, label, active, onClick } = props;
 
-  const urlIsAbsolute = url && url.includes("http");
   const relativeUrl = url ? `/${url}` : "";
-  const finalUrl = urlIsAbsolute ? url : relativeUrl;
+  const finalUrl = isAbsoluteUrl(url) ? url : relativeUrl;
 
   return (
-    <li className="nav-item" onClick={onClick}>
-      <a
-        className={`nav-link page-scroll ${active ? "active" : ""}`}
-        href={finalUrl}
-        target={urlIsAbsolute ? "_blank" : undefined}
-      >
-        {label}
-      </a>
-    </li>
+    <Nav.Link
+      target={isAbsoluteUrl(url) ? "_blank" : undefined}
+      className={`nav-link page-scroll ${active ? "active" : ""}`}
+      href={finalUrl}
+      onClick={onClick}
+    >
+      {label || children}
+    </Nav.Link>
   );
 }

@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 export interface IAuthor {
   profile_image?: string;
@@ -55,11 +55,28 @@ export interface ISection {
   scrollAnchorId?: string;
 }
 
-export interface IMainMenuLink {
-  url?: string;
+export interface IMainMenuLinkFields {
+  url: string;
   label?: string;
+  child_items?: Array<IMainMenuLink>;
+}
+
+export interface IMainMenuLink extends IMainMenuLinkFields {
   active?: boolean;
+  children?: ReactNode;
   onClick?: MouseEventHandler<HTMLLIElement>;
+}
+
+export interface IMainMenuDropdown {
+  active?: boolean;
+  activeItemId?: string;
+  id?: string;
+  items?: Array<IMainMenuLinkFields>;
+  label?: string;
+  onItemClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  openOnHover?: boolean;
+  show?: boolean;
+  variant?: "dark" | "light" | string;
 }
 
 export interface ICategory {
