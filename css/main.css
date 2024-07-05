@@ -29,7 +29,7 @@ a {
 }
 
 .page {
-  padding-top: 65px;
+  padding-top: 30px;
 }
 
 .scroll-top {
@@ -62,6 +62,17 @@ a {
 /*=========================== 
 	NAVBAR CSS 
 ============================= */
+.navbar {
+  border-radius: 5px;
+  position: relative;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  padding: 10px 0;
+}
+
 .navbar-area {
   position: absolute;
   top: 0;
@@ -73,22 +84,32 @@ a {
   -ms-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+  background-color: #f1f9fd;
+}
+
+.navbar-brand {
+  --bs-navbar-brand-padding-y: 0;
 }
 
 .nav-link {
   --bs-navbar-nav-link-padding-x: 1rem;
   --bs-nav-link-color: #000;
+  --bs-nav-link-padding-y: 0.8rem;
+}
+
+.nav-link:hover {
+  background-color: #e0f2fb;
 }
 
 .navbar-nav .show > .nav-link,
 .navbar-nav .nav-link.active {
-  --bs-navbar-active-color: #0044da;
+  background-color: #e0f2fb;
 }
 
 .sticky {
   position: fixed;
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 99;
-  background-color: #fff;
   -webkit-box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
@@ -103,31 +124,11 @@ a {
   background: rgba(0, 0, 0, 0.9);
 }
 
-.navbar {
-  border-radius: 5px;
-  position: relative;
-  -webkit-transition: all 0.3s ease-out 0s;
-  -moz-transition: all 0.3s ease-out 0s;
-  -ms-transition: all 0.3s ease-out 0s;
-  -o-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-  padding: 10px 0;
-}
-
 @media only screen and (min-width: 768px) and (max-width: 991px),
   (max-width: 767px) {
   .navbar {
     padding: 15px 0;
   }
-}
-
-.navbar-brand {
-  padding: 0;
-  display: flex;
-}
-
-.navbar-brand img {
-  max-width: 180px;
 }
 
 .navbar-toggler {
@@ -137,11 +138,11 @@ a {
 
 @media only screen and (min-width: 768px) and (max-width: 991px),
   (max-width: 767px) {
-  .navbar-toggler {
+  /* .navbar-toggler {
     position: absolute;
     right: 0;
-    top: 22px;
-  }
+    top: 12px;
+  } */
 }
 
 .navbar-toggler:focus {
@@ -188,6 +189,14 @@ a {
 }
 
 @media only screen and (max-width: 991px) {
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  .navbar-area {
+    min-height: 50px;
+  }
+
   .navbar-collapse {
     position: absolute;
     top: 100%;
@@ -578,12 +587,37 @@ a {
 
 .dropdown-menu {
   --bs-dropdown-padding-y: 0;
-  margin-top: 0.6rem;
+  margin-top: -2px;
   --bs-dropdown-min-width: 14rem;
+  --bs-border-radius: 0;
+  border-top: none;
+}
+
+.dropdown-toggle::after {
+  margin-left: 0.75rem;
 }
 
 a.dropdown-item {
   --bs-dropdown-item-padding-y: 0.5rem;
+  display: flex;
+}
+
+.dropdown-item.active {
+  --bs-dropdown-link-active-bg: #cfebf9;
+  --bs-dropdown-link-active-color: #000;
+}
+
+a.dropdown-item:not(:last-child) {
+  border-bottom: 1px solid var(--bs-dropdown-border-color);
+}
+
+/* linkedin svg adjust (align-items is center) */
+.nav-link.linked-in svg {
+  margin-top: -5px;
+}
+
+.nav-link.github svg {
+  margin-top: -2px;
 }
 
 /*# sourceMappingURL=main.css.map */

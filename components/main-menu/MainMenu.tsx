@@ -2,7 +2,7 @@ import { useState, useRef, Fragment } from "react";
 import { useRouter } from "next/router";
 
 import MainMenuLink from "./MainMenuLink";
-import { IMainMenuLink } from "@/interfaces/common";
+import { IMainMenuLink, IMainMenuLinkFields } from "@/interfaces/common";
 import { MainMenuDropdown } from "./MainMenuDropdown";
 import { labelToId } from "@/utils/string-utils";
 import { GITHUB_URL, LINKED_IN_URL } from "constants/common";
@@ -19,6 +19,16 @@ export default function MainMenu(props: MainMenuProps) {
   const menuLinksEl: any = useRef(null);
   const router = useRouter();
   const pageSlug = router.asPath.replace("/", "");
+
+  const checkForActiveChildren = (
+    childItems: Array<IMainMenuLinkFields>
+  ): boolean => {
+    if (!childItems || !childItems.length) return false;
+
+    return childItems.some((item: IMainMenuLinkFields) => {
+      return item.url.replace("/", "") === pageSlug;
+    });
+  };
 
   return (
     <>
@@ -51,7 +61,7 @@ export default function MainMenu(props: MainMenuProps) {
                   <Fragment key={`nav-link-${linkIndex}`}>
                     {navLink.child_items && navLink.child_items.length ? (
                       <MainMenuDropdown
-                        active={pageSlug === "code-snippets"}
+                        active={checkForActiveChildren(navLink.child_items)}
                         activeItemId={pageSlug}
                         id={navLink.label ? labelToId(navLink.label) : ""}
                         label={navLink.label}
@@ -80,7 +90,11 @@ export default function MainMenu(props: MainMenuProps) {
                 ))
               : undefined}
             <Nav.Item>
-              <MainMenuLink key="menu-item-linked-in" url={LINKED_IN_URL}>
+              <MainMenuLink
+                key="menu-item-linked-in"
+                url={LINKED_IN_URL}
+                className="linked-in"
+              >
                 <svg
                   width={18}
                   xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +106,11 @@ export default function MainMenu(props: MainMenuProps) {
               </MainMenuLink>
             </Nav.Item>
             <Nav.Item>
-              <MainMenuLink key="menu-item-github" url={GITHUB_URL}>
+              <MainMenuLink
+                key="menu-item-github"
+                url={GITHUB_URL}
+                className="github"
+              >
                 <svg
                   width={24}
                   xmlns="http://www.w3.org/2000/svg"

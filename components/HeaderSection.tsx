@@ -31,12 +31,14 @@ export default function HeaderSection(props: HeaderSectionProps) {
     <header className="header">
       <div
         ref={navbarAreaEl}
-        className={`navbar-area ${isNavbarSticky ? "sticky" : ""}`}
+        className={`navbar-area d-flex align-items-center ${
+          isNavbarSticky ? "sticky" : ""
+        }`}
       >
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-12">
-              <Nav className="navbar navbar-expand-lg">
+              <Nav className="navbar navbar-expand-lg p-0">
                 <NavbarBrand
                   className="text-primary fs-3"
                   href="https://markfazzio.com"

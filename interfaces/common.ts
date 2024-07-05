@@ -64,6 +64,7 @@ export interface IMainMenuLinkFields {
 export interface IMainMenuLink extends IMainMenuLinkFields {
   active?: boolean;
   children?: ReactNode;
+  className?: string;
   onClick?: MouseEventHandler<HTMLLIElement>;
 }
 

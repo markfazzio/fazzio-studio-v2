@@ -5,7 +5,7 @@ import { IMainMenuLink } from "@/interfaces/common";
 import { isAbsoluteUrl } from "@/utils/string-utils";
 
 export default function MainMenuLink(props: IMainMenuLink) {
-  const { url, children, label, active, onClick } = props;
+  const { className, url, children, label, active, onClick } = props;
 
   const relativeUrl = url ? `/${url}` : "";
   const finalUrl = isAbsoluteUrl(url) ? url : relativeUrl;
@@ -13,7 +13,7 @@ export default function MainMenuLink(props: IMainMenuLink) {
   return (
     <Nav.Link
       target={isAbsoluteUrl(url) ? "_blank" : undefined}
-      className={`nav-link page-scroll ${active ? "active" : ""}`}
+      className={`nav-link page-scroll ${active ? "active" : ""} ${className}`}
       href={finalUrl}
       onClick={onClick}
     >
