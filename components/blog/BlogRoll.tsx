@@ -13,7 +13,7 @@ export default function BlogRoll(props: BlogRollProps) {
   const { posts } = props;
 
   return (
-    <section id="blog" className="py-5">
+    <div id="blog" className="py-5">
       <div className="container">
         <div className="row">
           <div className="col">
@@ -40,6 +40,6 @@ export default function BlogRoll(props: BlogRollProps) {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

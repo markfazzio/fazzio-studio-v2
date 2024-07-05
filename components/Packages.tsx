@@ -13,7 +13,7 @@ export default function Packages() {
       <div className="row">
         <div className="col-12">
           <div className="section-title mb-4">
-            <h2>Packages / Toolkits</h2>
+            <h2>Featured Packages / Toolkits</h2>
             <p>
               Some useful packages I have put together to streamline
               development.

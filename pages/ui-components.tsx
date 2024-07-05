@@ -1,78 +1,114 @@
-import { ChangeEvent, useState } from "react";
+// import { ChangeEvent, useState } from "react";
 import camelcaseKeys from "camelcase-keys";
+import { Octokit } from "octokit";
 
 // api
 import { getLandingPage } from "@/lib/api";
 
 // components
-import CodeSnippetsGrid from "@/components/CodeSnippetsGrid";
+// import CodeSnippetsGrid from "@/components/CodeSnippetsGrid";
 
 // interfaces
-import { ICodeSnippet } from "@/interfaces/common";
 import Packages from "@/components/Packages";
+import { GITHUB_USERNAME } from "constants/common";
+import { useEffect, useState } from "react";
+import { IGitHubRepo } from "@/interfaces/common";
+import { Badge, Card } from "react-bootstrap";
 
 export default function CodeSnippets({ page }: any) {
-  const pageData =
-    page && page.fields && page.fields.body && page.fields.body[0];
-  const headline: string =
-    (pageData && pageData.fields && pageData.fields.headline) ||
-    "UI Components";
-  const codeSnippets: Array<ICodeSnippet> =
-    pageData && pageData.fields && pageData.fields.code_snippets;
-  const description: string =
-    pageData && pageData.fields && pageData.fields.description;
+  const [reposData, setReposData] = useState<Array<IGitHubRepo>>([]);
 
-  const [currentSnippets, setCurrentSnippets] = useState(codeSnippets || []);
+  // const [currentSnippets, setCurrentSnippets] = useState(codeSnippets || []);
 
-  const onFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const lowerCaseValue = event.target.value.toLowerCase();
-    const filteredSnippets = codeSnippets.filter((snippet) => {
-      return (
-        (snippet.title &&
-          snippet.title.toLowerCase().includes(lowerCaseValue)) ||
-        (snippet.category && snippet.category.includes(lowerCaseValue))
+  // const onFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const lowerCaseValue = event.target.value.toLowerCase();
+  //   const filteredSnippets = codeSnippets.filter((snippet) => {
+  //     return (
+  //       (snippet.title &&
+  //         snippet.title.toLowerCase().includes(lowerCaseValue)) ||
+  //       (snippet.category && snippet.category.includes(lowerCaseValue))
+  //     );
+  //   });
+  //   setCurrentSnippets(filteredSnippets);
+  // };
+
+  const octokit = new Octokit({
+    auth: process.env.NEXT_GITHUB_PERSONAL_ACCESS_TOKEN,
+  });
+
+  const getGitHubRepos = async () => {
+    try {
+      const reposDataRequest = await octokit.request(
+        "GET /users/{username}/repos",
+        {
+          username: GITHUB_USERNAME,
+          headers: {
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+        }
       );
-    });
-    setCurrentSnippets(filteredSnippets);
+
+      if (reposDataRequest && reposDataRequest.data) {
+        setReposData(reposDataRequest.data);
+      }
+
+      console.log(reposData);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  useEffect(() => {
+    getGitHubRepos();
+  }, []);
 
   return (
     <div className="page page-code-snippets">
-      <section id="code-packages" className="py-5 bg-secondary-subtle">
+      <section id="code-packages" className="py-5 bg-heavy-rain">
         <Packages />
       </section>
-      <section id="code-snippets" className="py-5">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="section-title mb-4">
-                <h2>{headline}</h2>
-                {description ? <p>{description}</p> : undefined}
+      {reposData && reposData.length ? (
+        <section id="github-repos" className="py-5">
+          <div className="container">
+            <div className="row mb-4">
+              <div className="col">
+                <h2>All Public GitHub Repos</h2>
+                Check out all of my existing github projects below, ranging from
+                games, to cheat sheets for TypeScript/JavaScript, static site
+                generator framework kits, and more!
               </div>
             </div>
-          </div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-md-offset-3">
-              <div className="form-floating mb-3">
-                <input
-                  type="email"
-                  className="form-control form-control-lg"
-                  id="snippetFilter"
-                  onChange={onFilterChange}
-                  placeholder="e.g. FizzBuzz"
-                />
-                <label htmlFor="snippetFilter">
-                  Filter by title or category
-                </label>
-              </div>
+            <div className="row">
+              {reposData.map((repo: IGitHubRepo, index: number) => (
+                <div
+                  className="col-lg-6 mb-3"
+                  key={`repo-${index}-${repo.name}`}
+                >
+                  <Card>
+                    <Card.Body>
+                      <Card.Title>{repo.name}</Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">
+                        {repo.full_name}
+                      </Card.Subtitle>
+                      <Card.Text>{repo.description}</Card.Text>
+                      <Card.Link
+                        className="btn btn-primary"
+                        target="_blank"
+                        href={repo.html_url}
+                      >
+                        View On GitHub
+                      </Card.Link>
+                    </Card.Body>
+                    <Badge className="position-absolute end-0">
+                      {repo.language}
+                    </Badge>
+                  </Card>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-
-        <CodeSnippetsGrid codeSnippets={currentSnippets} type="accordion" />
-      </section>
+        </section>
+      ) : undefined}
     </div>
   );
 }

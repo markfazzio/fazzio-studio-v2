@@ -42,7 +42,7 @@ export default function LandingPage(props: LandingPageProps) {
       </Head>
 
       <div className="page page-landing">
-        <section className="landing-blog bg-secondary-subtle">
+        <section className="landing-blog bg-heavy-rain">
           <BlogRoll posts={blogPosts} />
         </section>
         {page.fields.body.map(

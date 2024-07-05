@@ -90,3 +90,11 @@ export interface ICategoryPage {
   categories?: Array<ICategory>;
   slug?: string;
 }
+
+export interface IGitHubRepo {
+  name: string;
+  description: string;
+  full_name: string;
+  language: string;
+  html_url: string;
+}
