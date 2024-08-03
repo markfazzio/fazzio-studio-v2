@@ -1,6 +1,7 @@
-// import { ChangeEvent, useState } from "react";
+import { useEffect, useState } from "react";
 import camelcaseKeys from "camelcase-keys";
 import { Octokit } from "octokit";
+import { Badge, Card } from "react-bootstrap";
 
 // api
 import { getLandingPage } from "@/lib/api";
@@ -11,9 +12,7 @@ import { getLandingPage } from "@/lib/api";
 // interfaces
 import Packages from "@/components/Packages";
 import { GITHUB_USERNAME } from "constants/common";
-import { useEffect, useState } from "react";
 import { IGitHubRepo } from "@/interfaces/common";
-import { Badge, Card } from "react-bootstrap";
 
 export default function CodeSnippets({ page }: any) {
   const [reposData, setReposData] = useState<Array<IGitHubRepo>>([]);
@@ -51,8 +50,6 @@ export default function CodeSnippets({ page }: any) {
       if (reposDataRequest && reposDataRequest.data) {
         setReposData(reposDataRequest.data);
       }
-
-      console.log(reposData);
     } catch (error) {
       console.error(error);
     }

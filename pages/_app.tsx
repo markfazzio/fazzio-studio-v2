@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
-
 import Router from "next/router";
 import App, { AppContext } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+// api
 import { getMainMenu } from "@/lib/api";
 
+// components
 import FooterSection from "@/components/FooterSection";
 import HeaderSection from "@/components/HeaderSection";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
+// lib
 import "bootstrap/dist/css/bootstrap.css";
-import "@/css/lineicons.css";
 
-import "@/css/tiny-slider.min.css";
+// ours
 import "@/css/main.css";
 
 function MyApp({ Component, pageProps, mainMenu }: any) {
@@ -62,11 +63,7 @@ function MyApp({ Component, pageProps, mainMenu }: any) {
         <title>Mark Fazzio | JAMStack Engineer</title>
         <meta name="description" content="Mark Fazzio | JAMStack Engineer" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="shortcut icon"
-          type="image/x-icon"
-          href="https://buttercms.com/static/v2/images/favicon.png"
-        />
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.svg" />
       </Head>
 
       {isLoading && <LoadingSpinner></LoadingSpinner>}

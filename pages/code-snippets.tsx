@@ -6,9 +6,13 @@ import { getLandingPage } from "@/lib/api";
 
 // components
 import CodeSnippetsGrid from "@/components/CodeSnippetsGrid";
+import UIFormField from "@/components/global/UIFormField";
+import { UIDropdown } from "@/components/global/UIDropdown";
 
 // interfaces
 import { ICodeSnippet } from "@/interfaces/common";
+import { CODE_SNIPPET_CATEGORIES } from "constants/common";
+import { getCategoryBadgeVariant } from "@/utils/template-utils";
 
 export default function CodeSnippets({ page }: any) {
   const pageData =
@@ -21,7 +25,11 @@ export default function CodeSnippets({ page }: any) {
   const description: string =
     pageData && pageData.fields && pageData.fields.description;
 
-  const [currentSnippets, setCurrentSnippets] = useState(codeSnippets || []);
+  const [currentSnippets, setCurrentSnippets] = useState<Array<any>>(
+    codeSnippets || []
+  );
+  const [currentSnippetCategory, setCurrentSnippetCategory] =
+    useState<string>("");
 
   const onFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
     const lowerCaseValue = event.target.value.toLowerCase();
@@ -33,6 +41,23 @@ export default function CodeSnippets({ page }: any) {
       );
     });
     setCurrentSnippets(filteredSnippets);
+  };
+
+  const onCategorySelect = (eventKey: string | null) => {
+    if (eventKey) {
+      setCurrentSnippetCategory(eventKey);
+      const filteredSnippets = codeSnippets.filter((snippet) => {
+        return snippet.category && snippet.category.includes(eventKey);
+      });
+      setCurrentSnippets(filteredSnippets);
+    } else {
+      setCurrentSnippetCategory("");
+    }
+  };
+
+  const onCategoryClear = () => {
+    setCurrentSnippetCategory("");
+    setCurrentSnippets(codeSnippets);
   };
 
   return (
@@ -49,20 +74,33 @@ export default function CodeSnippets({ page }: any) {
           </div>
         </div>
         <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-md-offset-3">
-              <div className="form-floating mb-3">
-                <input
-                  type="email"
-                  className="form-control form-control-lg"
-                  id="snippetFilter"
-                  onChange={onFilterChange}
-                  placeholder="e.g. FizzBuzz"
-                />
-                <label htmlFor="snippetFilter">
-                  Filter by title or category
-                </label>
-              </div>
+          <div className="row mb-3">
+            <div className="col-md-4 col-md-offset-3">
+              <UIFormField
+                id="snippetFilter"
+                label="Search Snippets"
+                onChange={onFilterChange}
+                placeholder="e.g. FizzBuzz"
+                size="lg"
+                className="mb-3 mb-md-0"
+              />
+            </div>
+            <div className="col-md-4 col-lg-3">
+              <UIDropdown
+                className="w-100 d-flex justify-content-between align-items-center"
+                label="Filter By Category"
+                items={CODE_SNIPPET_CATEGORIES}
+                onClear={onCategoryClear}
+                onSelect={onCategorySelect}
+                placeholder="Select Category"
+                size="lg"
+                value={currentSnippetCategory}
+                variant={
+                  currentSnippetCategory
+                    ? getCategoryBadgeVariant(currentSnippetCategory)
+                    : "outline-secondary"
+                }
+              />
             </div>
           </div>
         </div>

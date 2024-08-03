@@ -549,6 +549,28 @@ a {
   --bs-btn-border-color: #0044da;
 }
 
+/* make a default form field dropdown */
+.dropdown-toggle.btn-outline-secondary {
+  --bs-btn-border-color: var(--bs-border-color);
+  --bs-btn-hover-bg: var(--bs-light);
+  --bs-btn-hover-border-color: var(--bs-border-color);
+  --bs-btn-hover-color: var(--bs-body-color);
+  --bs-btn-active-bg: var(--bs-light);
+  --bs-btn-active-border-color: var(--bs-border-color);
+  --bs-btn-active-color: var(--bs-body-color);
+}
+
+/* small fix to change to light text to match badge */
+.dropdown-toggle.btn-info {
+  --bs-btn-color: white;
+  --bs-btn-hover-color: white;
+  --bs-btn-active-color: white;
+}
+
+.dropdown-menu.show {
+  width: 100%;
+}
+
 .text-primary {
   color: #0044da !important;
 }
