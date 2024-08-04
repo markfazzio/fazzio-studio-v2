@@ -69,6 +69,7 @@ export const UIDropdown = (props: UIDropdownProps) => {
           {items && items.length
             ? items.map((item: UIDropdownItemProps, index: number) => (
                 <Dropdown.Item
+                  active={!!(value && value === item.value)}
                   eventKey={item.value}
                   key={`${item.value}-item-${index}`}
                 >

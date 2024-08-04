@@ -37,6 +37,7 @@ export default function CodeSnippets({ page }: any) {
       return (
         (snippet.title &&
           snippet.title.toLowerCase().includes(lowerCaseValue)) ||
+        (snippet.description && snippet.description.includes(lowerCaseValue)) ||
         (snippet.category && snippet.category.includes(lowerCaseValue))
       );
     });
